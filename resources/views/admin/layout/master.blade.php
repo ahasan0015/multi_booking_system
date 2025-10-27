@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     @yield('styles')
 </head>
@@ -17,7 +18,7 @@
     <nav class="navbar navbar-expand-lg travel-navbar">
         <div class="container">
             <!-- Brand -->
-            <a class="navbar-brand fw-bold" href="#">TravelCo</a>
+            <a class="navbar-brand fw-bold" href="/">Travel.Com</a>
 
             <!-- Mobile Toggle -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -29,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Flights</a>
+                        <a class="nav-link active" href="/flights">Flights</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Hotels</a>
@@ -65,7 +66,7 @@
     <nav class="sidebar bg-light shadow">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="/" class="nav-link active">
                     <i class="bi bi-house-door-fill me-2"></i>Dashboard
                 </a>
             </li>
@@ -74,6 +75,36 @@
                     <i class="bi bi-person-fill me-2"></i>Users
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="bi bi-person-fill me-2"></i>Roles
+                </a>
+            </li>
+            <!-- <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="bi bi-person-fill me-2"></i>Airlines
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="bi bi-person-fill me-2"></i>Airports
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="bi bi-person-fill me-2"></i>Flight Booking
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="bi bi-person-fill me-2"></i>Payment
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="bi bi-person-fill me-2"></i>Hotel
+                </a>
+            </li> -->
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="bi bi-graph-up me-2"></i>Analytics
@@ -91,6 +122,12 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Main Content Area -->
+    <main class="content" >
+        @yield('content')
+    </main>
+
 
 
 
