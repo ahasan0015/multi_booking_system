@@ -71,13 +71,14 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('users.index') }}" class="nav-link">
                     <i class="bi bi-person-fill me-2"></i>Users
                 </a>
             </li>
             <li class="nav-item">
-                <a href="roles.index" class="nav-link">
-                    <i class="bi bi-person-fill me-2"></i>Roles
+                <a href="{{ route('roles.index') }}" class="nav-link">
+                    <i class="bi bi-people me-2"></i>Roles
+
                 </a>
             </li>
             <!-- <li class="nav-item">

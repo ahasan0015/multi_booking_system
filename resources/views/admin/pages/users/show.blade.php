@@ -1,2 +1,45 @@
 @extends('admin.layout.master')
-@section('title', 'Users')
+@section('title', 'User Details')
+
+@section('content')
+<div class="container py-4">
+    <h2 class="fw-bold text-primary mb-4">User Profile</h2>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped align-middle">
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-end" style="width: 30%;">ID:</th>
+                            <td>{{ $users['id'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-end">Name:</th>
+                            <td>{{ $users['name'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-end">Email:</th>
+                            <td>{{ $users['email'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-end">Phone:</th>
+                            <td>{{ $users['phone'] ?? 'N/A' }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-end">Created At:</th>
+                            <td>{{ $users['created_at'] }}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Back Button -->
+            <a href="{{ route('users.index') }}" class="btn btn-secondary mt-3 rounded-pill px-4">
+                <i class="bi bi-arrow-left me-1"></i> Back to Users
+            </a>
+        </div>
+    </div>
+</div>
+@endsection
