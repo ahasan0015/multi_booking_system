@@ -76,7 +76,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="roles.index" class="nav-link">
                     <i class="bi bi-person-fill me-2"></i>Roles
                 </a>
             </li>
