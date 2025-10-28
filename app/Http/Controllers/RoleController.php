@@ -11,11 +11,12 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
+        // dd($roles);
         return view('admin.pages.roles.index', compact('roles'));
     }
     public function show($id)
     {
-        $roles = Role::find($id);
-        return view('admin.pages.roles.show', compact('roles'));
+        $role = Role::find($id);
+        return view('admin.pages.roles.show', compact('role'));
     }
 }

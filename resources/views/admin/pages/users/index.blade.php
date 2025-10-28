@@ -29,6 +29,13 @@
             </tr>
             @endforeach
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="5">
+                    {{ $users->links('vendor.pagination.bootstrap-5') }}
+                </th>
+            </tr>
+        </tfoot>
     </table>
 </div>
 @endsection

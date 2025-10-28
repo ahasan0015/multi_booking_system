@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('admin.pages.welcome', [
-        'name'=> "Roxy",
+        'name'=> "Ahasan",
         "country"=> "Bangladesh"
     ]);
 });

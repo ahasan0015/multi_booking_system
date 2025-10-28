@@ -16,7 +16,7 @@
             @foreach ($roles as $item)
             <tr>
                 <td>{{ $item['id'] }}</td>
-                <td>{{ $item['role_name'] }}</td>
+                <td>{{ $item['name'] }}</td>
                 <td>
                     <x-button bg="primary"  href="{{ route('role-details', $item['id']) }}">View</x-button>
                 </td>

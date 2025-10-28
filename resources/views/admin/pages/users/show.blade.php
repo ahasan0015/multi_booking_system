@@ -12,23 +12,23 @@
                     <tbody>
                         <tr>
                             <th scope="row" class="text-end" style="width: 30%;">ID:</th>
-                            <td>{{ $users['id'] }}</td>
+                            <td>{{ $user['id'] }}</td>
                         </tr>
                         <tr>
                             <th scope="row" class="text-end">Name:</th>
-                            <td>{{ $users['name'] }}</td>
+                            <td>{{ $user['name'] }}</td>
                         </tr>
                         <tr>
                             <th scope="row" class="text-end">Email:</th>
-                            <td>{{ $users['email'] }}</td>
+                            <td>{{ $user['email'] }}</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="text-end">Phone:</th>
-                            <td>{{ $users['phone'] ?? 'N/A' }}</td>
+                            <th scope="row" class="text-end">Role:</th>
+                            <td>{{ $user['role'] ?? 'N/A' }}</td>
                         </tr>
                         <tr>
                             <th scope="row" class="text-end">Created At:</th>
-                            <td>{{ $users['created_at'] }}</td>
+                            <td>{{ $user['created_at'] }}</td>
                         </tr>
                         
                     </tbody>

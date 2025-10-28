@@ -8,11 +8,11 @@
             <tbody>
                 <tr>
                     <th scope="row" class="text-end" style="width: 30%;">Trainee ID:</th>
-                    <td>{{ $roles['id'] }}</td>
+                    <td>{{ $role['id'] }}</td>
                 </tr>
                 <tr>
                     <th scope="row" class="text-end">Trainee Name:</th>
-                    <td>{{ $roles['role_name'] }}</td>
+                    <td>{{ $role['name'] }}</td>
                 </tr>
             </tbody>
         </table>
