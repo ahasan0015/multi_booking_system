@@ -19,3 +19,5 @@ Route::get('/roles',[RoleController::class,'index'])->name('roles.index');
 Route::get('/roles/{id}', [RoleController::class, 'show'])->name('role-details');
 Route::get('/users',[UserController::class,'index'])->name('users.index');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('user-details');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
