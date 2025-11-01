@@ -16,7 +16,7 @@
                         </tr>
                         <tr>
                             <th scope="row" class="text-end">Name:</th>
-                            <td>{{ $user['name'] }}</td>
+                            <td>{{ $user['first_name'] }} {{ $user['last_name'] }}</td>
                         </tr>
                         <tr>
                             <th scope="row" class="text-end">Email:</th>
@@ -26,11 +26,6 @@
                             <th scope="row" class="text-end">Role:</th>
                             <td>{{ $user['role'] ?? 'N/A' }}</td>
                         </tr>
-                        <tr>
-                            <th scope="row" class="text-end">Created At:</th>
-                            <td>{{ $user['created_at'] }}</td>
-                        </tr>
-                        
                     </tbody>
                 </table>
             </div>

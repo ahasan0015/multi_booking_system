@@ -11,7 +11,7 @@
                     <td>{{ $role['id'] }}</td>
                 </tr>
                 <tr>
-                    <th scope="row" class="text-end">Trainee Name:</th>
+                    <th scope="row" class="text-end">Trainee Role:</th>
                     <td>{{ $role['name'] }}</td>
                 </tr>
             </tbody>
