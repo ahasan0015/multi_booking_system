@@ -33,10 +33,10 @@
                         <a class="nav-link active" href="/flights">Flights</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hotels</a>
+                        <a class="nav-link" href="/hotels">Hotels</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Rent a Car</a>
+                        <a class="nav-link" href="/rent_a_car">Rent a Car</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Deals</a>
@@ -81,7 +81,7 @@
 
                 </a>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="bi bi-person-fill me-2"></i>Airlines
                 </a>
@@ -105,7 +105,7 @@
                 <a href="#" class="nav-link">
                     <i class="bi bi-person-fill me-2"></i>Hotel
                 </a>
-            </li> -->
+            </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="bi bi-graph-up me-2"></i>Analytics

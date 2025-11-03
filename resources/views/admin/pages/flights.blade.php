@@ -3,19 +3,23 @@
 @section('title', 'Flights Management')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid py-4">
+
     <!-- Header -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold text-primary">✈️ Flights Management</h2>
+        <h2 class="fw-bold text-primary mb-0">✈️ Flights Management</h2>
         <a href="#" class="btn btn-primary rounded-pill px-4">
             <i class="bi bi-plus-lg me-1"></i> Add Flight
         </a>
     </div>
 
-    <!-- Search + Filter -->
+    <!-- Search Flights -->
     <div class="card shadow-sm mb-4 border-0">
+        <div class="card-header bg-primary text-white fw-semibold">
+            🔍 Search Flights
+        </div>
         <div class="card-body">
-            <form class="row g-3">
+            <form class="row g-3 align-items-center">
                 <div class="col-md-3">
                     <input type="text" class="form-control" placeholder="Search by Flight Number">
                 </div>
@@ -25,6 +29,7 @@
                         <option>Qatar Airways</option>
                         <option>Emirates</option>
                         <option>Turkish Airlines</option>
+                        <option>Biman Bangladesh</option>
                     </select>
                 </div>
                 <div class="col-md-3">
@@ -44,8 +49,57 @@
         </div>
     </div>
 
+    <!-- Search Ticket Section -->
+    <div class="card shadow-sm mb-4 border-0">
+        <div class="card-header bg-success text-white fw-semibold">
+            🎫 Search Ticket
+        </div>
+        <div class="card-body">
+            <form class="row g-3 align-items-center">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Ticket ID (e.g. TKT-45678)">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Passenger Name">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Flight No (e.g. QR908)">
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-outline-success w-100">
+                        <i class="bi bi-search me-1"></i> Find Ticket
+                    </button>
+                </div>
+            </form>
+
+            <!-- Static Result Section -->
+            <div class="mt-4">
+                <h6 class="fw-bold text-secondary">Sample Ticket Result:</h6>
+                <div class="card border-0 shadow-sm mt-2">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="fw-bold text-primary mb-1">TKT-45678</h5>
+                                <p class="mb-0 text-muted">Passenger: <strong>Rahim Uddin</strong></p>
+                                <p class="mb-0 text-muted">Flight: <strong>QR908 (Dhaka → Doha)</strong></p>
+                            </div>
+                            <div class="text-end">
+                                <p class="mb-1 text-success fw-semibold">Confirmed</p>
+                                <p class="mb-0">Issued on: 2025-10-30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- Flights Table -->
     <div class="card shadow-sm border-0">
+        <div class="card-header bg-light fw-semibold">
+            ✈️ All Flights
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table align-middle table-hover">
