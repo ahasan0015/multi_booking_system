@@ -3,23 +3,31 @@
 @section('content')
 <div class="container">
    <h2>User Form</h2>
-   <form action="{{ route('users.store') }}" method="POST">
+   <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="row g-3">
             <div class="col-md-6">
                 <label>First Name</label>
-                <input type="text" name="first_name" class="form-control" value="{{ old('name') }}">
-                @error('name')
+                <input type="text" name="first_name" class="form-control" value="{{ old('first_name') }}">
+                @error('first_name')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="col-md-6">
                 <label>Last name</label>
-                <input type="text" name="last_name" class="form-control" value="{{ old('name') }}">
-                @error('name')
+                <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}">
+                @error('last_name')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            <div class="col-md-6">
+                <label>Phone Number</label>
+                <input type="number" name="phone" class="form-control" value="{{ old('phone') }}">
+                @error('phone')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+           
            
             <div class="col-md-6">
                 <label>Email</label>
@@ -34,7 +42,7 @@
                 </select>
             </div>
             <div class="col-md-12">
-                <label for="">Proile Image<span class="text-muted" data-bs-toggle="tooltip" data-bs-title="<ul class='text-start ps-3  mb-1'><li> Image must be jpg, jpeg or png</li> <li> Image dimension must be 200x200</li> <li> Image size must be less than 500 kb</li></ul>" data-bs-html="true"><i class="fa-solid fa-circle-question"></i></span></label>
+                <label for="">Profile Image<span class="text-muted" data-bs-toggle="tooltip" data-bs-title="<ul class='text-start ps-3  mb-1'><li> Image must be jpg, jpeg or png</li> <li> Image dimension must be 200x200</li> <li> Image size must be less than 500 kb</li></ul>" data-bs-html="true"><i class="fa-solid fa-circle-question"></i></span></label>
                 <input type="file" name="photo" class="form-control">
                 @error('photo')
                     <span class="text-danger">{{ $message }}</span>

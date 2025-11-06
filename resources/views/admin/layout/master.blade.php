@@ -16,6 +16,7 @@
     @yield('styles')
 </head>
 
+
 <body>
     <!-- Travel Booking Navbar -->
     <nav class="navbar navbar-expand-lg travel-navbar">

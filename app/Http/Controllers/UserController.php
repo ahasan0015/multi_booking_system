@@ -84,13 +84,14 @@ class UserController extends Controller
             'first_name' => 'required|min:2|max:20',
             'last_name' => 'required|min:2|max:20',
             'email' => 'required|email|unique:users',
+            'phone' => 'required|regex:/^01[0-9]{9}$/|unique:users,phone',
             'photo' => ['mimes:jpg,png,jpeg', 'image', 'max:500', 'dimensions:ratio=1/1,width=200,height=200'],
             'password' => ['required', 'min:6', 'confirmed'],
         ],
 
             [
                 'photo.mimes' => 'Profile image must be jpg, jpeg or png',
-                'photo.dimensions' => 'Image dimension must be width: 200 and height: 200',
+                // 'photo.dimensions' => 'Image dimension must be width: 200 and height: 200',
             ]);
         if ($request->hasFile('photo')) {
             // dd('photo found');
@@ -105,6 +106,7 @@ class UserController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'photo' => $photo,
             'password' => $request->password,
             'role_id' => $request->role_id,
@@ -114,5 +116,17 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'User created successfully!');
 
+    }
+    public function Update(Request $request, $id){
+        $request->validate([
+            'fname'=>['required', 'min:2','max:20'],
+            'lname'=>['required', 'min:2','max:20'],
+        ]);
+        $user = User::find($id);
+        $user->update([
+            'first_name'=>$request->fname,
+            'last_name'=>$request->lname,
+            'role_id'=>$request->role_id,
+        ]);
     }
 }
