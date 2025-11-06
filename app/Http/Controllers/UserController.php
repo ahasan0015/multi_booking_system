@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
+use App\Models\User;
+// use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-use App\Models\Role;
 
 class UserController extends Controller
 {
     public function index()
     {
         // Query Builder
-        // $users = DB::table('users as u') 
+        // $users = DB::table('users as u')
 
         // Eloquent ORM
         // $users = User::from('users as u')
@@ -32,16 +32,16 @@ class UserController extends Controller
         //         ->get();
 
         $users = User::from('users as u')
-                ->select('u.id', 'u.first_name', 'u.last_name', 'u.phone','u.email', 'r.name as role')
-                ->join('roles as r', 'u.role_id', '=', 'r.id')
-                ->orderBy('u.id', )
+            ->select('u.id', 'u.first_name', 'u.last_name', 'u.phone', 'u.email', 'r.name as role')
+            ->join('roles as r', 'u.role_id', '=', 'r.id')
+            ->orderBy('u.id')
                 // ->skip(0)
                 // ->take(10)
                 // ->get();
-                ->paginate(20);
-        
+            ->paginate(20);
+
         // $sl = ($users->currentPage() - 1) * $users->perPage() + 1;
-                
+
         // dd($users);
         return view('admin.pages.users.index', compact('users'));
     }
@@ -50,11 +50,69 @@ class UserController extends Controller
     {
         // $user = User::find($id);
         $user = User::select('u.id', 'u.first_name', 'u.last_name', 'u.phone', 'u.email', 'r.name as role')
-                ->from('users as u')
-                ->join('roles as r', 'u.role_id', '=', 'r.id')
-                ->where('u.id', $id)
-                ->first();
+            ->from('users as u')
+            ->join('roles as r', 'u.role_id', '=', 'r.id')
+            ->where('u.id', $id)
+            ->first();
 
         return view('admin.pages.users.show', compact('user'));
+    }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        // dd('Deleted');
+
+        return redirect()->route('users.index')->with('success', 'User Deleted Successfully');
+    }
+
+    public function create()
+    {
+        $roles = Role::all();
+
+        return view('admin.pages.users.create', compact('roles'));
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request->file('photo'));
+        // dd($request->all());
+
+        $request->validate([
+            'first_name' => 'required|min:2|max:20',
+            'last_name' => 'required|min:2|max:20',
+            'email' => 'required|email|unique:users',
+            'photo' => ['mimes:jpg,png,jpeg', 'image', 'max:500', 'dimensions:ratio=1/1,width=200,height=200'],
+            'password' => ['required', 'min:6', 'confirmed'],
+        ],
+
+            [
+                'photo.mimes' => 'Profile image must be jpg, jpeg or png',
+                'photo.dimensions' => 'Image dimension must be width: 200 and height: 200',
+            ]);
+        if ($request->hasFile('photo')) {
+            // dd('photo found');
+            $photo = $request->file('photo')->store('users', 'public');
+        } else {
+            $photo = null;
+        }
+        // dd($photo);
+
+        // dd($request->all());
+        $user = User::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'photo' => $photo,
+            'password' => $request->password,
+            'role_id' => $request->role_id,
+        ]);
+
+        // dd($user);
+
+        return redirect()->route('users.index')->with('success', 'User created successfully!');
+
     }
 }

@@ -4,6 +4,14 @@
 @section('content')
     <div class="container">
         <h2>Multi Booking Users</h2>
+        @if(session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+        <div class="my-3 text-end">
+            <a href="{{ route('users.create') }}" class="btn btn-outline-primary"> Add New</a>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -30,13 +38,10 @@
                                 Edit
                             </x-button>
 
-                            <form action="" method="POST" class="d-inline">
+                            <form action="{{ route('users.destroy',$item['id']) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <x-button bg="danger" type="submit" class="ms-2"
-                                    onclick="return confirm('Are you sure you want to delete this user?')">
-                                    Delete
-                                </x-button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
 

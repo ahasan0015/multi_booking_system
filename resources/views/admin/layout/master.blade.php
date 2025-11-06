@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     @yield('styles')
 </head>
 
@@ -125,7 +128,7 @@
     </nav>
 
     <!-- Main Content Area -->
-    <main class="content" >
+    <main class="content">
         @yield('content')
     </main>
 
@@ -134,7 +137,12 @@
 
 
     <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
     @yield('scripts')
+
 
 
 </body>

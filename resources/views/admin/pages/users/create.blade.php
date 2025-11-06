@@ -8,7 +8,14 @@
         <div class="row g-3">
             <div class="col-md-6">
                 <label>First Name</label>
-                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                <input type="text" name="first_name" class="form-control" value="{{ old('name') }}">
+                @error('name')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="col-md-6">
+                <label>Last name</label>
+                <input type="text" name="last_name" class="form-control" value="{{ old('name') }}">
                 @error('name')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -25,6 +32,13 @@
                     <option value="{{ $item['id'] }}">{{$item['name']}}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="col-md-12">
+                <label for="">Proile Image<span class="text-muted" data-bs-toggle="tooltip" data-bs-title="<ul class='text-start ps-3  mb-1'><li> Image must be jpg, jpeg or png</li> <li> Image dimension must be 200x200</li> <li> Image size must be less than 500 kb</li></ul>" data-bs-html="true"><i class="fa-solid fa-circle-question"></i></span></label>
+                <input type="file" name="photo" class="form-control">
+                @error('photo')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="col-md-6">
                 <label>Password</label>
