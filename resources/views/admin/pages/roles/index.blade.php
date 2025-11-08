@@ -4,6 +4,8 @@
 @section('content')
     <div class="container">
         <h2>Multi Booking Roles</h2>
+        <a href="{{ route('roles.create') }}" class="btn btn-outline-primary float-end">Add Roles</a>
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -19,20 +21,20 @@
                         <td>{{ $item['name'] }}</td>
                         <td>
                             <x-button bg="primary" href="{{ route('role-details', $item['id']) }}">View</x-button>
-                            <x-button bg="warning" href="" class="ms-2">
+                            <x-button bg="warning" href="{{ route('roles.edit',$item['id']) }}" class='ms-2'>
                                 Edit
                             </x-button>
 
-                            <form action="" method="POST" class="d-inline">
-                                @csrf
+                            <form action="{{ route('role-destroy', $item['id']) }}" method="POST" class="d-inline"> @csrf
                                 @method('DELETE')
-                                <x-button bg="danger" type="submit" class="ms-2"
-                                    onclick="return confirm('Are you sure you want to delete this user?')">
+                                {{-- <a type="submit" class="btn btn-danger">Delete</a> --}}
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Are you sure you want to delete it?');">
                                     Delete
-                                </x-button>
+                                </button>
                             </form>
                         </td>
-                        
+
                     </tr>
                 @endforeach
             </tbody>

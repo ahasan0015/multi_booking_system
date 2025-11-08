@@ -21,7 +21,13 @@ Route::get('/rent_a_car', function () {
 });
 
 Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
+Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
+Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
+Route::get('/roles/{role}/edit', [RoleController::class, 'edit'])->name('roles.edit');
+Route::patch('/roles/{id}', [RoleController::class, 'update'])->name('roles.update');
 Route::get('/roles/{id}', [RoleController::class, 'show'])->name('role-details');
+Route::delete('/roles/{id}', [RoleController::class, 'destroy'])->name('role-destroy');
+
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
