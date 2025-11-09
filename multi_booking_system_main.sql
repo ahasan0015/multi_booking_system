@@ -8,10 +8,12 @@ CREATE TABLE Roles (
 CREATE TABLE Users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     role_id INT,
-    name VARCHAR(100) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     phone VARCHAR(20),
+    photo VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

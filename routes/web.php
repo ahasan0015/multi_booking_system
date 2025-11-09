@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AirlineController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -35,3 +36,5 @@ Route::get('/users/{id}', [UserController::class, 'show'])->name('user-details')
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::patch('/users/{id}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+Route::get('/airline',[AirlineController::class,'index'])->name('airlines-index');

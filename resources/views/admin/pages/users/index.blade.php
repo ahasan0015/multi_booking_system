@@ -25,6 +25,7 @@
         <tbody>
             @foreach ($users as $item)
             <tr>
+                
                 <td>{{ $item['id'] }}</td>
                 <td>{{ $item['first_name'] }} {{ $item['last_name'] }}</td>
                 <td>{{ $item['email'] }}</td>
