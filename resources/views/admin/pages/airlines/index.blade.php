@@ -24,7 +24,7 @@
                 <form action="" class="d-inline"> 
                     @csrf
                     @method('DELETE')
-                    <a href="" class="btn btn-danger">Delet</a>
+                    <a href="" class="btn btn-danger">Delete</a>
                 </form>
                 
             </td>

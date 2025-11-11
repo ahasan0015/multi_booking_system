@@ -3,6 +3,8 @@
 use App\Http\Controllers\AirlineController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Mail\RegistrationConfirmationMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,6 +12,10 @@ Route::get('/', function () {
         'name' => 'Ahasan',
         'country' => 'Bangladesh',
     ]);
+});
+Route::get('/test-mail', function(){
+    Mail::to('ahasanstu94@gmail.com')->send(new RegistrationConfirmationMail());
+    return 'Mail Sent Successfully RELAX';
 });
 Route::get('/flights', function () {
     return view('admin.pages.flights');
