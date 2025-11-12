@@ -15,7 +15,7 @@ Route::get('/', function () {
 });
 Route::get('/test-mail', function(){
     Mail::to('ahasanstu94@gmail.com')->send(new RegistrationConfirmationMail());
-    return 'Mail Sent Successfully RELAX';
+    return 'Mail Sent Successfully to Asha';
 });
 Route::get('/flights', function () {
     return view('admin.pages.flights');
