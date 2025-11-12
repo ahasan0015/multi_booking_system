@@ -44,3 +44,6 @@ Route::patch('/users/{id}', [UserController::class, 'update'])->name('users.upda
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 Route::get('/airline',[AirlineController::class,'index'])->name('airlines-index');
+Route::get('airline/create',[AirlineController::class,'create'])->name('airline.create');
+Route::post('airline',[AirlineController::class,'store'])->name('airline.store');
+Route::get('/airline/{id}',[AirlineController::class,'show'])->name('airline.show');
