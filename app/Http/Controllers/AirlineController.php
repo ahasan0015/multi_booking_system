@@ -50,7 +50,7 @@ class AirlineController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( $id)
     {
         $airline = Airline::find($id);
 
@@ -60,24 +60,40 @@ class AirlineController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( $id)
     {
-        //
+        $airline = Airline::find($id);
+        $page = request('page', 1);
+        
+        return view('admin.pages.airlines.edit',compact('airline','page'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,  $id)
     {
-        //
+        $airline =Airline::find($id);
+        $page = request('page', 1);
+        $request->validate([
+            'airline_name'=>'required|min:5|max:20',
+            'country'=> 'required|min:2|max:5'
+        ]);
+        $airline->update([
+            'airline_name'=> $request->airline_name,
+            'country'=>$request->country,
+        ]);
+        return redirect()->route('airlines-index')->with('success', 'Airlines updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $airline = Airline::find($id);
+        $airline->delete();
+        // dd('deleted');
+        return redirect()->route('airlines-index')->with('success', 'User Deleted Successfully');
     }
 }

@@ -48,24 +48,27 @@ class RoleController extends Controller
         return redirect()->route('roles.index')->with('success', 'Role added successfully');
     }
 
-    public function edit()
+    public function edit($id)
     {
-       
-        // $page = request('page', 1);
+       $role = Role::find($id);
+        $page = request('page', 1);
 
         // dd($page);
-        return view('admin.pages.roles.edit');
+        return view('admin.pages.roles.edit',compact('role','page'));
     }
 
-    public function Update(Request $request){
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'name' => 'required|string|max:50',
+    ]);
 
-        Role::update([
-            'name' => $request->name, // নিশ্চিতভাবে value পাঠানো হচ্ছে
-        ]);
+    $role = Role::findOrFail($id); // ডাটাবেস থেকে রেকর্ড খুঁজবে
+    $role->update([
+        'name' => $request->name,
+    ]);
 
-        return redirect()->route('roles.index')->with('success', 'Role added successfully');
-    }
+    return redirect()->route('roles.index')->with('success', 'Role updated successfully');
+}
+
 }

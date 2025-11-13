@@ -47,3 +47,6 @@ Route::get('/airline',[AirlineController::class,'index'])->name('airlines-index'
 Route::get('airline/create',[AirlineController::class,'create'])->name('airline.create');
 Route::post('airline',[AirlineController::class,'store'])->name('airline.store');
 Route::get('/airline/{id}',[AirlineController::class,'show'])->name('airline.show');
+Route::get('/airline/{id}/edit',[AirlineController::class,'edit'])->name('airline.edit');
+Route::patch('/airline/{id}',[AirlineController::class,'update'])->name('airline.update');
+Route::delete('/airlines/{id}',[AirlineController::class,'destroy'])->name('airline.delete');

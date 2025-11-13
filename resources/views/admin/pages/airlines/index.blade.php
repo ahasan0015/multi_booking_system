@@ -29,11 +29,11 @@
                 <td>{{ $item['country'] }}</td>
                 <td>
                     <a href="{{ route('airline.show', $item['id']) }}" class="btn btn-primary">View</a>
-                    <a href="" class="btn btn-warning">Edit</a>
-                    <form action="" class="d-inline">
+                    <a href="{{ route('airline.edit',$item['id'])}}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('airline.delete', $item['id'] )}}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>
 
                 </td>
