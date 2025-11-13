@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Airline;
+use App\Models\Airports;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
         Role::factory(5)->create();
         User::factory(50)->create();
         Airline::factory(30)->create();
+        Airports::factory(40)->create();
 
         // User::factory()->create([
         //     'name' => 'Test User',
