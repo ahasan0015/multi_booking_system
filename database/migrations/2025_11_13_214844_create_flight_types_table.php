@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('flight_types', function (Blueprint $table) {
             $table->id();
+            $table->string('type_name', 50);
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AirlineController;
+use App\Http\Controllers\FlightSearchController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Mail\RegistrationConfirmationMail;
@@ -18,8 +19,9 @@ Route::get('/test-mail', function(){
     return 'Mail Sent Successfully to Asha';
 });
 Route::get('/flights', function () {
-    return view('admin.pages.flights');
+    return view('admin.pages.flights.search');
 });
+
 Route::get('/hotels', function () {
     return view('admin.pages.hotels');
 });
@@ -50,3 +52,6 @@ Route::get('/airline/{id}',[AirlineController::class,'show'])->name('airline.sho
 Route::get('/airline/{id}/edit',[AirlineController::class,'edit'])->name('airline.edit');
 Route::patch('/airline/{id}',[AirlineController::class,'update'])->name('airline.update');
 Route::delete('/airlines/{id}',[AirlineController::class,'destroy'])->name('airline.delete');
+
+Route::get('/flight-search', [FlightSearchController::class, 'index'])->name('flight.search');
+Route::get('/flight-search/results', [FlightSearchController::class, 'search'])->name('flight.search.results');
