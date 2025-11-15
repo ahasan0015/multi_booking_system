@@ -76,6 +76,6 @@ class FlightBookingController extends Controller
         //     'updated_at' => now(),
         // ]);
 
-        return redirect()->back()->with('success', 'Booking সফল হয়েছে! Booking ID: ' . $bookingId);
+        return redirect()->back()->with('success', 'Booking Completed Successfully! Booking ID: ' . $bookingId);
     }
 }
