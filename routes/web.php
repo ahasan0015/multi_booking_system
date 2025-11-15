@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AirlineController;
+use App\Http\Controllers\FlightBookingController;
 use App\Http\Controllers\FlightSearchController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -53,13 +54,18 @@ Route::get('/airline/{id}',[AirlineController::class,'show'])->name('airline.sho
 Route::get('/airline/{id}/edit',[AirlineController::class,'edit'])->name('airline.edit');
 Route::patch('/airline/{id}',[AirlineController::class,'update'])->name('airline.update');
 Route::delete('/airlines/{id}',[AirlineController::class,'destroy'])->name('airline.delete');
+//flight search
+Route::get('/flights', [FlightSearchController::class, 'index'])->name('flight.index');
+Route::get('/flights/search', [FlightSearchController::class, 'search'])->name('flight.search');
 
-Route::get('/flight-search', [FlightSearchController::class, 'index'])->name('flight.search');
-Route::get('/flight-search/results', [FlightSearchController::class, 'search'])->name('flight.search.results');
 
+//flight book
+// Flight booking page (নতুন ট্যাবে খোলা হবে)
+Route::get('/flights/{id}/book', [FlightBookingController::class, 'show'])->name('flight.book');
+Route::post('/flights/{id}/book', [FlightBookingController::class, 'store'])->name('flight.book.submit');
 
-Route::get('test', function() {
-    $flight = Flight::find(2);
+// Route::get('test', function() {
+//     $flight = Flight::find(2);
 
-    dd($flight->airline);
-});
+//     dd($flight->airline);
+// });

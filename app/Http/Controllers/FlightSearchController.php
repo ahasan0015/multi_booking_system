@@ -2,33 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Airline;
-use App\Models\Airports;
-use App\Models\Flight;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FlightSearchController extends Controller
 {
-    public function index(Request $request)
+    // Show search form
+    public function index()
     {
-        $flights = [];
-
-        if(!blank($request->from) && !blank($request->from) && !blank($request->from)) {
-            $flights = Flight::query()
-                ->where('departure_airport_id', $request->from)
-                ->where('arrival_airport_id', $request->to)
-                ->whereDate('departure_time', $request->date)
-                ->get();
-        }
-
-
-        return view('admin.pages.flights.search', [
-            'airlines' => Airline::all(),
-            'airports' => Airports::all(),
-            'flights' => $flights
-        ]);
+        $airports = DB::table('airports')->get();
+        return view('admin.pages.flights.search', compact('airports'));
     }
 
+    // Search results
     public function search(Request $request)
     {
         $request->validate([
@@ -37,12 +23,23 @@ class FlightSearchController extends Controller
             'date' => 'required|date'
         ]);
 
-        $flights = Flight::with(['airline', 'departureAirport', 'arrivalAirport'])
-            ->where('departure_airport_id', $request->from)
-            ->where('arrival_airport_id', $request->to)
-            ->whereDate('departure_time', $request->date)
+        $airports = DB::table('airports')->get();
+
+        $flights = DB::table('flights as f')
+            ->join('airlines as a', 'f.airline_id', '=', 'a.id')
+            ->join('airports as d', 'f.departure_airport_id', '=', 'd.id')
+            ->join('airports as r', 'f.arrival_airport_id', '=', 'r.id')
+            ->where('f.departure_airport_id', $request->from)
+            ->where('f.arrival_airport_id', $request->to)
+            ->whereDate('f.departure_time', $request->date)
+            ->select(
+                'f.*',
+                'a.airline_name',
+                'd.airport_name as departure_airport',
+                'r.airport_name as arrival_airport'
+            )
             ->get();
 
-        return view('admin.pages.flights.results', compact('flights'));
+        return view('admin.pages.flights.search', compact('airports', 'flights'));
     }
 }

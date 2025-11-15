@@ -44,7 +44,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{route('flight.search')}}">Flights</a>
+                        <a class="nav-link active" href="{{route('flight.index')}}">Flights</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/hotels">Hotels</a>
