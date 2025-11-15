@@ -17,4 +17,19 @@ class Flight extends Model
         'arrival_time',
         'price'
     ];
+
+    public function airline()
+    {
+        return $this->belongsTo(Airline::class);
+    }
+
+    public function departureAirport()
+    {
+        return $this->belongsTo(Airports::class, 'departure_airport_id');
+    }
+
+    public function arrivalAirport()
+    {
+        return $this->belongsTo(Airports::class, 'arrival_airport_id');
+    }
 }

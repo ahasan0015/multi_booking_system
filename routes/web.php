@@ -5,6 +5,7 @@ use App\Http\Controllers\FlightSearchController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Mail\RegistrationConfirmationMail;
+use App\Models\Flight;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -55,3 +56,10 @@ Route::delete('/airlines/{id}',[AirlineController::class,'destroy'])->name('airl
 
 Route::get('/flight-search', [FlightSearchController::class, 'index'])->name('flight.search');
 Route::get('/flight-search/results', [FlightSearchController::class, 'search'])->name('flight.search.results');
+
+
+Route::get('test', function() {
+    $flight = Flight::find(2);
+
+    dd($flight->airline);
+});
