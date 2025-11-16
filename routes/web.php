@@ -4,9 +4,11 @@ use App\Http\Controllers\AirlineController;
 use App\Http\Controllers\FlightBookingController;
 use App\Http\Controllers\FlightSearchController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\UserController;
 use App\Mail\RegistrationConfirmationMail;
 use App\Models\Flight;
+use App\Models\Trainees;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -69,3 +71,34 @@ Route::post('/flights/{id}/book', [FlightBookingController::class, 'store'])->na
 
 //     dd($flight->airline);
 // });
+
+Route::get('/trainees', function(){
+        $trainees = [
+        [
+            'id' => 1,
+            'name' => 'Roxy',
+            'email' => 'ahasanstu@gmail.com',
+            'country' => 'BD',
+            'is_active' => true
+        ],
+        [
+            'id' => 2,
+            'name' => 'Aysha',
+            'email' => 'ayasha@gmail.com',
+            'country' => 'PaK',
+            'is_active' => false
+        ],
+        [
+            'id' => 3,
+            'name' => 'Rani',
+            'email' => 'rani@gmail.com',
+            'country' => 'BD',
+            'is_active' => true
+        ]
+    ];
+    return view('admin.pages.trainees.index',[
+        'trainees'=>$trainees
+        // 'trainees'=>Trainees::all()
+    ]);
+});
+Route::get('/trainees/{id}',[TraineeController::class,'show'])->name('trainee.details');
