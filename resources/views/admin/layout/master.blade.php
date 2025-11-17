@@ -17,7 +17,7 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     @yield('styles')
-    
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
@@ -64,12 +64,20 @@
                             <li><a class="dropdown-item" href="#">Travel Guides</a></li>
                             <li><a class="dropdown-item" href="#">Support</a></li>
                             <li><a class="dropdown-item" href="#">Blog</a></li>
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+
                         </ul>
                     </li>
                 </ul>
 
                 <!-- Call-to-action -->
-                <a href="#" class="btn btn-outline-light ms-lg-3 rounded-pill px-4">Book Now</a>
+                <a href="{{ '/login' }}" class="btn btn-outline-light ms-lg-3 rounded-pill px-4">Book Now</a>
             </div>
         </div>
     </nav>

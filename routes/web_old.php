@@ -3,34 +3,17 @@
 use App\Http\Controllers\AirlineController;
 use App\Http\Controllers\FlightBookingController;
 use App\Http\Controllers\FlightSearchController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\UserController;
 use App\Mail\RegistrationConfirmationMail;
+use App\Models\Flight;
+use App\Models\Trainees;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/flights', function () {
-    return view('admin.pages.flights.search');
-});
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-
-
-Route::get('/', function () {
-    return view('welcome2', [
+    return view('admin.pages.welcome', [
         'name' => 'Ahasan',
         'country' => 'Bangladesh',
     ]);
@@ -83,4 +66,39 @@ Route::get('/flights/search', [FlightSearchController::class, 'search'])->name('
 Route::get('/flights/{id}/book', [FlightBookingController::class, 'show'])->name('flight.book');
 Route::post('/flights/{id}/book', [FlightBookingController::class, 'store'])->name('flight.book.submit');
 
-require __DIR__ . '/auth.php';
+// Route::get('test', function() {
+//     $flight = Flight::find(2);
+
+//     dd($flight->airline);
+// });
+
+Route::get('/trainees', function(){
+        $trainees = [
+        [
+            'id' => 1,
+            'name' => 'Roxy',
+            'email' => 'ahasanstu@gmail.com',
+            'country' => 'BD',
+            'is_active' => true
+        ],
+        [
+            'id' => 2,
+            'name' => 'Aysha',
+            'email' => 'ayasha@gmail.com',
+            'country' => 'PaK',
+            'is_active' => false
+        ],
+        [
+            'id' => 3,
+            'name' => 'Rani',
+            'email' => 'rani@gmail.com',
+            'country' => 'BD',
+            'is_active' => true
+        ]
+    ];
+    return view('admin.pages.trainees.index',[
+        'trainees'=>$trainees
+        // 'trainees'=>Trainees::all()
+    ]);
+});
+// Route::get('/trainees/{id}',[TraineeController::class,'show'])->name('trainee.details');
