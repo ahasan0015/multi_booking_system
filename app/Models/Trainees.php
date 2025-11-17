@@ -36,7 +36,7 @@ class Trainees
     }
 
     public static function findT($id){
-        dd(collect(self::$trainees)->firstWhere('id', $id));
+        // dd(collect(self::$trainees)->firstWhere('id', $id));
         return collect(self::$trainees)->firstWhere('id',$id);
     }
 
