@@ -9,6 +9,11 @@
             <h2 class="text-center text-primary fw-bold mb-4">
                 ✈️ Flight Management Dashboard
             </h2>
+            @if(session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
 
             {{-- Summary Cards --}}
             <div class="row g-4 mb-4 text-center">
@@ -121,31 +126,79 @@
 <script>
     // Chart 1: Sales & Revenue
     var options1 = {
-        chart: { type: 'area', height: 350, toolbar: { show: false } },
-        series: [
-            { name: 'Sales ($)', data: [8000, 9500, 7500, 10000, 11500, 12000, 14000, 16000, 15500, 17500, 19000, 21000] },
-            { name: 'Revenue ($)', data: [3500, 4100, 3200, 4800, 5200, 5600, 6100, 7000, 6800, 7600, 8200, 8800] }
+        chart: {
+            type: 'area',
+            height: 350,
+            toolbar: {
+                show: false
+            }
+        },
+        series: [{
+                name: 'Sales ($)',
+                data: [8000, 9500, 7500, 10000, 11500, 12000, 14000, 16000, 15500, 17500, 19000, 21000]
+            },
+            {
+                name: 'Revenue ($)',
+                data: [3500, 4100, 3200, 4800, 5200, 5600, 6100, 7000, 6800, 7600, 8200, 8800]
+            }
         ],
         colors: ['#008FFB', '#FEB019'],
-        fill: { type: 'gradient', gradient: { opacityFrom: 0.4, opacityTo: 0.1 } },
-        stroke: { curve: 'smooth', width: 3 },
-        xaxis: { categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] },
-        legend: { position: 'top', horizontalAlign: 'center' }
+        fill: {
+            type: 'gradient',
+            gradient: {
+                opacityFrom: 0.4,
+                opacityTo: 0.1
+            }
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3
+        },
+        xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        legend: {
+            position: 'top',
+            horizontalAlign: 'center'
+        }
     };
     new ApexCharts(document.querySelector("#salesRevenueChart"), options1).render();
 
     // Chart 2: Tickets & Orders
     var options2 = {
-        chart: { type: 'bar', height: 350, toolbar: { show: false } },
-        series: [
-            { name: 'Tickets Sold', data: [120, 150, 100, 180, 200, 170, 250, 300, 280, 350, 400, 420] },
-            { name: 'Orders', data: [30, 45, 25, 50, 55, 48, 60, 70, 65, 80, 85, 90] }
+        chart: {
+            type: 'bar',
+            height: 350,
+            toolbar: {
+                show: false
+            }
+        },
+        series: [{
+                name: 'Tickets Sold',
+                data: [120, 150, 100, 180, 200, 170, 250, 300, 280, 350, 400, 420]
+            },
+            {
+                name: 'Orders',
+                data: [30, 45, 25, 50, 55, 48, 60, 70, 65, 80, 85, 90]
+            }
         ],
         colors: ['#00E396', '#FF4560'],
-        plotOptions: { bar: { horizontal: false, columnWidth: '45%' } },
-        dataLabels: { enabled: false },
-        xaxis: { categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] },
-        legend: { position: 'top', horizontalAlign: 'center' }
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: '45%'
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        legend: {
+            position: 'top',
+            horizontalAlign: 'center'
+        }
     };
     new ApexCharts(document.querySelector("#ticketsOrdersChart"), options2).render();
 </script>
