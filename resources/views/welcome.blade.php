@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Booking System</title>
+    <title>Flight, Hotel & Rent a Car</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
@@ -29,7 +29,7 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-dark navbar-expand-lg bg-transparent px-4 mt-2">
-        <a class="navbar-brand fw-bold fs-3" href="#">✈ FlightBooking</a>
+        <a class="navbar-brand fw-bold fs-3" href="#">✈ Flight, Hotel & Rent a Car </a>
 
         <div class="ms-auto">
             <a href="/login" class="btn btn-light btn-custom me-2">Login</a>
@@ -41,9 +41,9 @@
     <div class="d-flex justify-content-center align-items-center text-center" style="min-height: 80vh;">
         <div class="hero-box">
 
-            <h1 class="fw-bold mb-3">Welcome to Flight Booking System</h1>
+            <h1 class="fw-bold mb-3">Welcome to Flight, Hotel & Rent a Car Management Dashboard</h1>
             <p class="lead mb-4">
-                A complete MVC-based platform to manage flights, bookings, passengers, and ticketing.
+                A complete  platform to manage flights, bookings, passengers, and ticketing.
             </p>
 
             <a href="/login" class="btn btn-light btn-lg px-4 rounded-3 me-2">Login</a>

@@ -7,7 +7,7 @@
     <div class="card shadow-lg border-0">
         <div class="card-body p-4">
             <h2 class="text-center text-primary fw-bold mb-4">
-                ✈️ Flight Management Dashboard
+                ✈️ Flight, Hotel & Rent a Car Management Dashboard
             </h2>
 
             {{-- Summary Cards --}}

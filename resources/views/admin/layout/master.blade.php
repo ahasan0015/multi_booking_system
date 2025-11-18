@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-lg travel-navbar">
         <div class="container">
             <!-- Brand -->
-            <a class="navbar-brand fw-bold" href="/">Travel.Com</a>
+            <a class="navbar-brand fw-bold" href="/dashboard">Travel.Com</a>
 
             <!-- Mobile Toggle -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -82,69 +82,97 @@
         </div>
     </nav>
 
-
-
     <!-- Sidebar -->
     <nav class="sidebar bg-light shadow">
         <ul class="nav flex-column">
+
             <li class="nav-item">
-                <a href="/" class="nav-link active">
+                <a href="/dashboard" class="nav-link active">
                     <i class="bi bi-house-door-fill me-2"></i>Dashboard
                 </a>
             </li>
+
             <li class="nav-item">
                 <a href="{{ route('users.index') }}" class="nav-link">
                     <i class="bi bi-person-fill me-2"></i>Users
                 </a>
             </li>
+
             <li class="nav-item">
                 <a href="{{ route('roles.index') }}" class="nav-link">
                     <i class="bi bi-people me-2"></i>Roles
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-credit-card"></i> Payment
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-ticket"></i> Flight Ticket
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-hotel"></i> Hotel Book Invoice
+                </a>
+            </li>
+             <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-car"></i> Rent A Car Invoice
+                </a>
+            </li>
 
-                </a>
-            </li>
+            <!-- Dropdown Menu -->
             <li class="nav-item">
-                <a href="{{ route('airlines-index') }}" class="nav-link">
-                    <i class="bi bi-person-fill me-2"></i>Airlines
+                <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#flightDropdown" role="button">
+                    <i class="bi bi-airplane-fill me-2"></i>Flight Management
                 </a>
+                <div class="collapse ms-3" id="flightDropdown">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('airlines-index') }}" class="nav-link">
+                                <i class="bi bi-caret-right-fill me-2"></i>Airlines
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="bi bi-caret-right-fill me-2"></i>Airports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-person-fill me-2"></i>Flight Booking
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="bi bi-person-fill me-2"></i>Airports
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="bi bi-person-fill me-2"></i>Flight Booking
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="bi bi-person-fill me-2"></i>Payment
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="bi bi-person-fill me-2"></i>Hotel
-                </a>
-            </li>
+
+            
+
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="bi bi-graph-up me-2"></i>Analytics
                 </a>
             </li>
+
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="bi bi-gear-fill me-2"></i>Settings
                 </a>
             </li>
+
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="bi bi-box-arrow-right me-2"></i>Logout
                 </a>
             </li>
+
         </ul>
     </nav>
+
 
     <!-- Main Content Area -->
     <main class="content">

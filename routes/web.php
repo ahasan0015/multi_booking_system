@@ -10,9 +10,9 @@ use App\Mail\RegistrationConfirmationMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/flights', function () {
     return view('admin.pages.flights.search');
@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/', function () {
-    return view('welcome2', [
+    return view('welcome', [
         'name' => 'Ahasan',
         'country' => 'Bangladesh',
     ]);
