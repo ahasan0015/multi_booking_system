@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,15 +42,39 @@ return [
             'synchronous' => null,
             'transaction_mode' => 'DEFERRED',
         ],
+//======Default MYSQL Connection=======
+        // 'mysql' => [
+        //     'driver' => 'mysql',
+        //     'url' => env('DB_URL'),
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '3306'),
+        //     'database' => env('DB_DATABASE', 'multi_booking_system'),
+        //     'username' => env('DB_USERNAME', 'root'),
+        //     'password' => env('DB_PASSWORD', ''),
+        //     'unix_socket' => env('DB_SOCKET', ''),
+        //     'charset' => env('DB_CHARSET', 'utf8mb4'),
+        //     'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
+        //     'prefix' => '',
+        //     'prefix_indexes' => true,
+        //     'strict' => true,
+        //     'engine' => null,
+        //     'options' => extension_loaded('pdo_mysql') ? array_filter([
+        //         PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+        //     ]) : [],
+        // ],
 
+    //=======Hosting Connection=======
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            // 'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'multi_booking_system'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            // 'database' => env('DB_DATABASE', 'multi_booking_system'),
+            'database' => env('DB_DATABASE', 'ahroxypo_multi_ticket_management'),
+            // 'username' => env('DB_USERNAME', 'root'),
+            'username' => env('DB_USERNAME', 'ahroxypo_multi_ticket_management'),
+            'password' => env('DB_PASSWORD', 'ahasanhabib'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => env('DB_CHARSET', 'utf8mb4'),
             'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
@@ -63,6 +87,7 @@ return [
             ]) : [],
         ],
 
+        //===========
         'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),

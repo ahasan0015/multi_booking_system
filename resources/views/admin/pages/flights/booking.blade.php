@@ -25,19 +25,19 @@
     <form action="{{ route('flight.book.submit', $flight->id) }}" method="POST" class="mb-5">
         @csrf
         <div class="row g-3">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label class="form-label">Full Name</label>
                 <input type="text" name="name" class="form-control" placeholder="Enter your full name" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label class="form-label">Email</label>
                 <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label class="form-label">Phone</label>
                 <input type="text" name="phone" class="form-control" placeholder="Enter your phone number" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label class="form-label">Seat Class</label>
                 <select name="seat_class" class="form-select" required>
                     <option value="Economy">Economy</option>
